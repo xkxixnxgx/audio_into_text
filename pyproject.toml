@@ -1,0 +1,26 @@
+[tool.poetry]
+name = "audio-into-text"
+version = "0.1.0"
+description = "The project allows you to upload audio to the table. After that, you can start recognition to get the text in different languages."
+authors = ["Yury Barodzich <chaykofskii@gmail.com>"]
+license = "BSD"
+readme = "README.md"
+packages = [{include = "audio_into_text"}]
+
+[tool.poetry.dependencies]
+python = "3.12.4"
+django = "5.0.6"
+strawberry-graphql = "0.235.1"
+
+
+[tool.poetry.group.dev.dependencies]
+black = "24.4.2"
+mypy = "1.10.1"
+pytest = "8.2.2"
+pre-commit = "3.7.1"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.black]
