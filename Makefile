@@ -2,13 +2,34 @@ pre-commit:
 	poetry run pre-commit run --all-files --color auto
 
 migrate:
-	poetry run python audio_into_text/manage.py migrate
+	docker-compose run --rm server python manage.py migrate
 
 makemigrations:
-	poetry run python audio_into_text/manage.py makemigrations
+	docker-compose run --rm server python manage.py makemigrations
 
 createsuperuser:
-	poetry run python audio_into_text/manage.py createsuperuser
+	docker-compose run --rm server python manage.py createsuperuser
+
+collectstatic:
+	docker-compose run --rm server python manage.py collectstatic --noinput
+
+rebuild:
+	docker-compose build server --no-cache
 
 run:
-	poetry run python audio_into_text/manage.py runserver 8010
+	poetry run python audio_into_text/manage.py runserver
+
+run_gunicorn:
+	gunicorn audio_into_text.audio_into_text.wsgi --bind 0.0.0.0:8010
+
+up:
+	docker-compose up -d
+
+down:
+	docker-compose down
+
+logs:
+	docker-compose logs server
+
+into_server:
+	docker-compose exec server bash

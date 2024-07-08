@@ -11,6 +11,6 @@ import os
 
 from django.core.asgi import get_asgi_application
 
-os.environ.setdefault("DJANGO_SETTINGS_MODULE", "audio_into_text.settings")
+os.environ.setdefault("DJANGO_SETTINGS_MODULE", "base_app.settings")
 
 application = get_asgi_application()
