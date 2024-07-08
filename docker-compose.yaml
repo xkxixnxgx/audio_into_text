@@ -13,6 +13,7 @@ services:
     env_file:
       - .env
     restart: always
+    user: aypa:aypa
 
   nginx:
     image: nginx:latest

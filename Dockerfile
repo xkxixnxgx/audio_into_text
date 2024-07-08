@@ -7,6 +7,7 @@ ENV PYTHONFAULTHANDLER=1 \
   PIP_DISABLE_PIP_VERSION_CHECK=on \
   PIP_DEFAULT_TIMEOUT=100
 
+RUN useradd -ms /bin/bash aypa
 WORKDIR /app
 
 RUN mkdir /app/video
@@ -22,5 +23,7 @@ RUN poetry config virtualenvs.create false
 RUN poetry install --only main --no-root
 
 COPY ./app /app
+RUN chown -R aypa:aypa /app
+USER aypa
 
 CMD ["gunicorn", "base_app.wsgi", "--bind", "0.0.0.0:8000", "-w", "1", "--reload"]
