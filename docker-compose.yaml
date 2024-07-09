@@ -8,8 +8,8 @@ services:
     volumes:
       - ./app/:/app/
       - ./ml_models/:/ml_models/
-      - ./video/:/video/
-      - ./audio/:/audio/
+      - .app/media/videos/:/video/
+      - .app/media/audios/:/audio/
     env_file:
       - .env
     restart: always

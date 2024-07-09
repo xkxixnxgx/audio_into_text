@@ -10,9 +10,6 @@ ENV PYTHONFAULTHANDLER=1 \
 RUN useradd -ms /bin/bash aypa
 WORKDIR /app
 
-RUN mkdir /app/video
-RUN mkdir /app/audio
-
 RUN apt-get update -y && apt-get upgrade -y && apt-get install -y gcc make build-essential libssl-dev libffi-dev libpq-dev
 RUN echo 'deb http://deb.debian.org/debian testing main' >> /etc/apt/sources.list
 RUN apt-get install -y  ffmpeg

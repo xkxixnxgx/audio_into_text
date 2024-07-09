@@ -1,18 +1,20 @@
-# from django.contrib import admin
-# from .models import Translator
-# # from .tasks import decode_video_to_audio, transcribe_audio, translate_transcript
-# from .tasks import decode_video_to_audio
+from django.contrib import admin
+from .models import Translator
+
+# from .tasks import decode_video_to_audio, transcribe_audio, translate_transcript
+from .tasks import decode_video_to_audio
 
 
-# class TranslatorAdmin(admin.ModelAdmin):
-#     list_display = ("video_url", "audio_url", "transcript", "translated_text", "day", "action_name", "description")
-#     actions = ["process_video", "process_audio", "translate_text"]
+class TranslatorAdmin(admin.ModelAdmin):
+    list_display = ("day", "set_name", "action_name", "video", "audio", "transcript", "translated_text", "description")
+    actions = ["process_video", "process_audio", "translate_text"]
 
-#     def process_video(self, request, queryset):
-#         for translator in queryset:
-#             if translator.video_url:
-#                 decode_video_to_audio(translator)
-#         self.message_user(request, "Video processing started.")
+    def process_video(self, request, queryset):
+        for translator in queryset:
+            if translator.video_url:
+                decode_video_to_audio(translator)
+        self.message_user(request, "Video processing started.")
+
 
 # def process_audio(self, request, queryset):
 #     for translator in queryset:
@@ -27,4 +29,4 @@
 #     self.message_user(request, "Translation started.")
 
 
-# admin.site.register(Translator, TranslatorAdmin)
+admin.site.register(Translator, TranslatorAdmin)
