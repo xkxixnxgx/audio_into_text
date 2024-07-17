@@ -1,0 +1,17 @@
+.short-transcript {
+    display: inline-block;
+    max-width: 200px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.short-transcript:hover {
+    white-space: normal;
+    overflow: visible;
+    background: #fff;
+    position: absolute;
+    z-index: 1;
+    border: 1px solid #ccc;
+    padding: 5px;
+}

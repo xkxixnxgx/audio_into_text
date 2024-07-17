@@ -4,12 +4,11 @@ services:
   server:
     build:
       dockerfile: Dockerfile
-    container_name: audio_into_text
+    container_name: media_to_text
     volumes:
       - ./app/:/app/
-      - ./ml_models/:/ml_models/
-      - .app/media/videos/:/video/
-      - .app/media/audios/:/audio/
+      - ./app/media/videos/:/video/
+      - ./app/media/audios/:/audio/
     env_file:
       - .env
     restart: always

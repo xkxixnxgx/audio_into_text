@@ -1,5 +1,5 @@
 """
-ASGI config for audio_into_text project.
+ASGI config for media_to_text project.
 
 It exposes the ASGI callable as a module-level variable named ``application``.
 

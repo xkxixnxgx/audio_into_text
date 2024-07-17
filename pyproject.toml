@@ -5,13 +5,20 @@ description = "The project allows you to upload audio to the table. After that, 
 authors = ["Yury Barodzich <chaykofskii@gmail.com>"]
 license = "BSD"
 readme = "README.md"
-packages = [{include = "audio_into_text"}]
+packages = [{include = "media_to_text"}]
 
 [tool.poetry.dependencies]
 python = "3.12.4"
 django = "5.0.6"
 strawberry-graphql = "0.235.1"
 gunicorn = "22.0.0"
+torch = "2.3.1"
+transformers = "4.42.4"
+torchaudio = "2.3.1"
+sentencepiece = "0.2.0"
+googletrans = "3.0.0"
+google-cloud-translate = "3.15.4"
+google-auth = "2.32.0"
 
 
 [tool.poetry.group.dev.dependencies]

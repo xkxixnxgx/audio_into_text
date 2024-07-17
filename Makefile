@@ -17,10 +17,10 @@ rebuild:
 	docker-compose build server --no-cache
 
 run:
-	poetry run python audio_into_text/manage.py runserver
+	poetry run python media_to_text/manage.py runserver
 
 run_gunicorn:
-	gunicorn audio_into_text.audio_into_text.wsgi --bind 0.0.0.0:8010
+	gunicorn media_to_text.media_to_text.wsgi --bind 0.0.0.0:8010
 
 up:
 	docker-compose up -d
@@ -29,7 +29,7 @@ down:
 	docker-compose down
 
 logs:
-	docker-compose logs server
+	docker-compose logs -f server
 
 into_server:
 	docker-compose exec server bash

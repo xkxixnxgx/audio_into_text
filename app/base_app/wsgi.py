@@ -1,5 +1,5 @@
 """
-WSGI config for audio_into_text project.
+WSGI config for media_to_text project.
 
 It exposes the WSGI callable as a module-level variable named ``application``.
 

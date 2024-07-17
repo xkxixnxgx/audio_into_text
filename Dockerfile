@@ -23,4 +23,4 @@ COPY ./app /app
 RUN chown -R aypa:aypa /app
 USER aypa
 
-CMD ["gunicorn", "base_app.wsgi", "--bind", "0.0.0.0:8000", "-w", "1", "--reload"]
+CMD ["gunicorn", "base_app.wsgi", "--bind", "0.0.0.0:8000", "-w", "1", "-t", "3600", "--reload"]

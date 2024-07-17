@@ -28,3 +28,15 @@ class Translator(models.Model):
 
     def __str__(self) -> Any:
         return self.action_name
+
+    def short_transcript(self):
+        return self.transcript[:50] + "..." if len(self.transcript) > 50 else self.transcript
+
+    short_transcript.short_description = "Transcript"
+    short_transcript.allow_tags = True
+
+    def short_translated_text(self):
+        return self.translated_text[:50] + "..." if len(self.translated_text) > 50 else self.translated_text
+
+    short_translated_text.short_description = "Translated Text"
+    short_translated_text.allow_tags = True
